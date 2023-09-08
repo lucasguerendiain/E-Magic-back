@@ -2,8 +2,7 @@ const express = require("express");
 const morgan = require("morgan");
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
-const getAllCards = require("./controllers/Card/getAllCards");
-const postRandomCards = require("./controllers/Card/postRandomCards");
+const routes = require("./routes"); 
 
 const server = express();
 
@@ -19,13 +18,7 @@ server.use((req, res, next) => {
   next();
 });
 
-server.get("/", (req, res) => {
-    res.status(200).send("hola");
-});
-
-server.get("/cards", getAllCards);
-
-server.post("/cards", postRandomCards);
+server.use("/", routes);
 
 module.exports = server;
 
