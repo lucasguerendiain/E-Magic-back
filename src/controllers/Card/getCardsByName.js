@@ -10,7 +10,7 @@ const getCardsByName = async (req, res) => {
             }
         });
         if (response) return res.status(201).json(response);
-        else return res.status(402).send({msg: "no se encontro nada"});
+        else return res.status(402).send({message: "no se encontro nada"});
     } catch(error) {
         res.status(404).json(error);
     }
