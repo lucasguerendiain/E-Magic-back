@@ -1,5 +1,5 @@
 const { Op } = require("sequelize");
-const { Card } = require("../../db");
+const { Card, Stock } = require("../../db");
 
 const getCardsByName = async (req, res) => {
     try {
@@ -7,8 +7,10 @@ const getCardsByName = async (req, res) => {
         const response = await Card.findAll({
             where: {
                 name: { [Op.iLike]: `%${name}%`}
-            }
-        });
+            }, include: [
+                { model: Stock }
+            
+        ]});
         if (response) return res.status(201).json(response);
         else return res.status(402).send({message: "no se encontro nada"});
     } catch(error) {

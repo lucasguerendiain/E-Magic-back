@@ -1,4 +1,4 @@
-const axios = require("axios");
+/*const axios = require("axios");
 const URL = "https://api.magicthegathering.io/v1/cards?contains=imageUrl";
 const { Card } = require("../../db");
 
@@ -47,4 +47,4 @@ const postRandomCards = async () => {
 
 }
 
-module.exports = postRandomCards;
+module.exports = postRandomCards;*/

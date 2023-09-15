@@ -1,4 +1,4 @@
-const { Card } = require("../../db");
+const { Card, Stock } = require("../../db");
 
 const filterAdvSearch = async (req, res) => {
     /* req.body === {
@@ -12,7 +12,7 @@ const filterAdvSearch = async (req, res) => {
     try {
         const filterInputs = req.body;
         //esto podria pasarselo del front para no hacer el findAll
-        const total = await Card.findAll();
+        const total = await Card.findAll({include: [{model: Stock}]});
         // tendria que testear que tanto tarda
         let filtered = total;
         for (const [key, value] of Object.entries(filterInputs)) {

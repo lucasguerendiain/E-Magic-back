@@ -38,7 +38,7 @@ module.exports = (sequelize) => {
         },
         setName: {
             type: DataTypes.STRING,
-            allowNull: false
+            primaryKey: true
         },
         text: {
             type: DataTypes.TEXT,
@@ -83,10 +83,6 @@ module.exports = (sequelize) => {
         id: {
             type: DataTypes.STRING,
             allowNull: false
-        },
-        stock: {
-            type: DataTypes.INTEGER,
-            defaultValue: 1,
         }
     }, {
         timestamps: false

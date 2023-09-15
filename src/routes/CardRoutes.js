@@ -2,10 +2,11 @@ const { Router } = require("express");
 
 const {
     getAllCards,
-    postRandomCards,
     getCardsByName,
     filterAdvSearch,
 } = require("../controllers/Card");
+
+const postRandomCards = require("../handlers/cards/postRandomCards");
 
 const cardRouter = Router();
 
