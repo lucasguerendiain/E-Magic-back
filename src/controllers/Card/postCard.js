@@ -17,18 +17,18 @@ const postCard = async (carta, estado, lenguaje, precio) => {
                     exist.stocks[i].update({stockNumber: arregloStocks[i].dataValues.stockNumber + 1});
                     bulean = true;
                 }
-                if (!bulean) {
-                    const newStock = await Stock.create({
-                        condition: estado,
-                        language: lenguaje,
-                        price: precio,
-                        cardName: carta.name,
-                        cardSetname: carta.setName
-                    });
-                    exist.addStock(newStock);
-                }
-                return exist;
             }
+            if (!bulean) {
+                const newStock = await Stock.create({
+                    condition: estado,
+                    language: lenguaje,
+                    price: precio,
+                    cardName: carta.name,
+                    cardSetname: carta.setName
+                });
+                exist.addStock(newStock);
+            }
+            return exist;
         } else {
             const newCard = await Card.create({
                 name,

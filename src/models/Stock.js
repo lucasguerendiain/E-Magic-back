@@ -17,6 +17,10 @@ module.exports = (Sequelize) => {
             type: DataTypes.INTEGER,
             defaultValue: 1
         },
+        inReserve: {
+            type: DataTypes.INTEGER,
+            defaultValue: 0
+        },
         price: {
             type: DataTypes.FLOAT,
         }
